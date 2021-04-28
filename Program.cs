@@ -20,27 +20,29 @@ namespace BankProject
 			//var account1 = new BankAccount("PQR", 500);
 			//Console.WriteLine($"Account {account1.Number} was created for owner {account1.Owner} with {account1.Balance} ");
 
-			//try
-			//{
-			//	var inavalidAccount = new BankAccount("invalid account", -55);
-			//}
-			//catch (ArgumentOutOfRangeException e)
-			//{
-			//	Console.WriteLine("Invalid account wiht negative balance");
-			//	Console.WriteLine(e.ToString());
-			//	throw;
-			//}
+			//Test Invalid Account
+			try
+			{
+				var inavalidAccount = new BankAccount("invalid account", -55);
+			}
+			catch (ArgumentOutOfRangeException e)
+			{
+				Console.WriteLine("Invalid account wiht negative balance");
+				Console.WriteLine(e.ToString());
+				throw;
+			}
 
-			//try
-			//{
-			//	account.MakeWithdrawal(DateTime.Now, 750,"OverDraw");
-			//}
-			//catch (InvalidOperationException e)
-			//{
-			//	Console.WriteLine("Try to over draw");
-			//	Console.WriteLine(e.ToString());
-			//	throw;
-			//}
+			//Test over drawn amount
+			try
+			{
+				account.MakeWithdrawal(DateTime.Now, 750, "OverDraw");
+			}
+			catch (InvalidOperationException e)
+			{
+				Console.WriteLine("Try to over draw");
+				Console.WriteLine(e.ToString());
+				throw;
+			}
 
 
 		}
